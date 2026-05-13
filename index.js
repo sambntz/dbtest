@@ -19,10 +19,10 @@ console.log({ config });
 
 const pool = mysql.createPool(config)
 
-app.get('/products', async (req, res) => {
+app.get('/', async (req, res) => {
     try {
         const [rows] = await pool.query(
-            'SELECT id, name FROM products'
+            'SELECT NOW();'
         )
 
         res.json(rows)
