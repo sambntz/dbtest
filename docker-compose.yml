@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  app:
+    image: node:22-alpine
+    container_name: dbtest
+    working_dir: /usr/src/app
+    volumes:
+      - .:/usr/src/app
+      - ./node_modules:/usr/src/app/node_modules
+    command: sh -c "npm install && node index.js"
+    env_file:
+      - .env
+    network_mode: host
